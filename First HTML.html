@@ -1,97 +1,299 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Факты о Мурманске</title>
+    <title>Путеводитель по Мурманску</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 70px;
+        }
+        
+        .navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1a4d80;
+            padding: 15px 0;
+            text-align: center;
+            z-index: 1000;
+        }
+        
+        .navigation a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            padding: 5px 10px;
+        }
+        
+        .navigation a:hover {
+            background-color: #0d2b4a;
+            border-radius: 5px;
+        }
+        
+        .section {
+            min-height: 100vh;
+            padding: 30px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        h1 {
+            color: #1a4d80;
+            text-align: center;
+            font-size: 48px;
+        }
+        
+        h2 {
+            color: #0d2b4a;
+            font-size: 32px;
+            border-bottom: 2px solid #1a4d80;
+            padding-bottom: 10px;
+        }
+        
+        .place-card {
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .place-card h3 {
+            color: #1a4d80;
+            font-size: 24px;
+            margin-top: 0;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px 0;
+        }
+        
+        td, th {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #1a4d80;
+            color: white;
+        }
+        
+        .price {
+            color: #1a4d80;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .tip {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1a4d80;
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
-    
-    <h1>Город Мурманск</h1>
-    <h2>Интересные факты</h2>
-    
-    
-    <p>Мурманск - самый большой город за полярным кругом.</p>
-    
-    
-    <p><a href="https://murmansk.ru">Сайт города</a></p>
-    
-    
-    <img src="https://ic.pics.livejournal.com/luvida/27483761/9994818/9994818_2000.jpg"  width="400" height="200">
-    
-    
-    <ul>
-        <li>Полярная ночь</li>
-        <li>Полярный день</li>
-        <li>Северное сияние</li>
-    </ul>
-    
-    
-    <ol>
-        <li>Основан в 1916</li>
-        <li>Город-герой</li>
-        <li>Ледокол Ленин</li>
-    </ol>
-    
-    
-    <table border="1">
-        <tr>
-            <td>Месяц</td>
-            <td>Температура</td>
-        </tr>
-        <tr>
-            <td>Январь</td>
-            <td>-13°C</td>
-        </tr>
-        <tr>
-            <td>Июль</td>
-            <td>+15°C</td>
-        </tr>
-    </table>
-    
-    
-    <form>
-        <input type="text" placeholder="Ваш отзыв о Мурманске">
-        <button>Отправить</button>
-    </form>
-    
-    
-    <form>
-        <input type="text" placeholder="Вопрос про город">
-        <button>Спросить</button>
-    </form>
-    
-    
-    <form>
-        <input type="checkbox"> Хочу поехать
-        <button>Записаться</button>
-    </form>
-    
-    
-    <form>
-        <input type="radio" name="season"> Лето
-        <input type="radio" name="season"> Зима
-        <input type="radio" name="season"> Весна
-        <input type="radio" name="season"> Осень
-        <button>Выбрать</button>
-    </form>
-    
-    
-    <p><b>Кстати!</b> В Мурманске <i>вкусная</i> рыба</p>
-    
-    
-    <p>Кольский залив<br>Семеновское озеро</p>
-    
-    
-    <hr>
-    
-    
-    <button>Узнать больше</button>
-    
-    
-    <footer>
-        <p>Добро пожаловать в Мурманск</p>
-    </footer>
+    <!-- Фиксированная навигация -->
+    <div class="navigation">
+        <a href="#section1">Главная</a>
+        <a href="#section2">Памятники</a>
+        <a href="#section3">Музеи</a>
+        <a href="#section4">Природа</a>
+        <a href="#section5">Маршруты</a>
+        <a href="#section6">Советы</a>
+    </div>
 
-      <img src="https://cs6.pikabu.ru/post_img/2015/01/14/11/1421259757_1918295428.jpg">
+    <!-- Главная -->
+    <div id="section1" class="section">
+        <h1>Путеводитель по Мурманску</h1>
+        <p style="font-size: 20px; text-align: center;">Добро пожаловать в столицу Арктики! Самый большой город за полярным кругом ждёт вас.</p>
+        <img src="https://cdn.geliophoto.ru/public_images/189350816.jpeg" width="800" height="400" style="display: block; margin: 0 auto;">
+    </div>
+
+    <!-- Памятники -->
+    <div id="section2" class="section">
+        <h2>Памятники Мурманска</h2>
+        
+        <div class="place-card">
+            <h3>Алёша (Памятник Защитникам Советского Заполярья)</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/d/d1/Алёша-Мурманск.JPG/1280px-Алёша-Мурманск.JPG" width="600" height="400">
+            <p>Один из самых высоких памятников в России. Высота - 42 метра.</p>
+            <p><b>Адрес:</b> Зелёный мыс</p>
+            <p><b>Как добраться:</b> Автобусы № 10, 18, 27</p>
+        </div>
+        
+        <div class="place-card">
+            <h3>Памятник треске</h3>
+            <img src="https://www.libkids51.ru/news/files/20240127_1400-3_thumb.jpg" width="600" height="400">
+            <p>Забавный памятник рыбе, которая спасла город от голода в войну.</p>
+            <p><b>Адрес:</b> Парк на площади Пяти углов</p>
+        </div>
+        
+        <div class="place-card">
+            <h3>Памятник морякам-подводникам</h3>
+            <img src="https://a.d-cd.net/7-gLxwZ_mSAvzskVMnF_q2Yl0cs-1920.jpg" width="600" height="400" >
+            <p>Мемориал героям-подводникам Северного флота.</p>
+            <p><b>Адрес: Мурманский маяк</b> </p>
+        </div>
+    </div>
+
+    <!-- Музеи -->
+    <div id="section3" class="section">
+        <h2>Музеи Мурманска</h2>
+        
+        <table>
+            <tr>
+                <th>Музей</th>
+                <th>Часы работы</th>
+                <th>Цена билета</th>
+            </tr>
+            <tr>
+                <td><b>Атомный ледокол "Ленин"</b></td>
+                <td>Ср-Вс 11:00-17:00</td>
+                <td class="price">400 руб.</td>
+            </tr>
+            <tr>
+                <td><b>Краеведческий музей</b></td>
+                <td>Ежедневно 10:00-18:00</td>
+                <td class="price">300 руб.</td>
+            </tr>
+            <tr>
+                <td><b>Художественный музей</b></td>
+                <td>Вт-Вс 11:00-19:00</td>
+                <td class="price">250 руб.</td>
+            </tr>
+            <tr>
+                <td><b>Музей рыбной промышленности</b></td>
+                <td>Пн-Пт 10:00-17:00</td>
+                <td class="price">200 руб.</td>
+            </tr>
+        </table>
+        
+        <div class="place-card">
+            <h3>Атомный ледокол "Ленин"</h3>
+            <p>Первый в мире атомный ледокол. Сейчас это музей-корабль.</p>
+            <p>Обязательно посетите машинное отделение и каюту капитана!</p>
+            <img src="https://visitmurmansk.info/wp-content/uploads/2020/04/94e114c8e5b4db8046ee57aa7e63ee11.jpg" width="600" height="400">
+        </div>
+    </div>
+
+    <!-- Природа -->
+    <div id="section4" class="section">
+        <h2>Природные достопримечательности</h2>
+        
+        <div class="place-card">
+            <h3>Семёновское озеро</h3>
+            <p>Красивое озеро в центре города с океанариумом.</p>
+            <ul>
+                <li>Океанариум - единственный в Европе с арктическими тюленями</li>
+                <li>Лодочная станция</li>
+                <li>Детские площадки и кафе</li>
+            </ul>
+        </div>
+        
+        <div class="place-card">
+            <h3>Кольский залив</h3>
+            <p>Живописный залив Баренцева моря.</p>
+            <ul>
+                <li>Морские прогулки на катерах</li>
+                <li>Рыбалка</li>
+                <li>Фотосессии на закате</li>
+            </ul>
+        </div>
+        
+        <div class="place-card">
+            <h3>Северное сияние</h3>
+            <p>Лучшее время для наблюдения: сентябрь - март</p>
+            <form>
+                <input type="checkbox"> Хочу увидеть северное сияние
+                <button>Записаться на экскурсию</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Маршруты -->
+    <div id="section5" class="section">
+        <h2>Популярные маршруты</h2>
+        
+        <ol>
+            <li><b>Городской маршрут:</b> Площадь Пять Углов → Морской вокзал → Ледокол "Ленин" → Семёновское озеро</li>
+            <li><b>Исторический:</b> Алёша → Краеведческий музей → Памятник морякам</li>
+            <li><b>Природный:</b> Кольский залив → Северное сияние (ночью) → Выезд в тундру</li>
+        </ol>
+        
+        <h3>Выберите сезон для поездки:</h3>
+        <form>
+            <input type="radio" name="season"> Лето (полярный день)
+            <input type="radio" name="season"> Зима (полярная ночь)
+            <input type="radio" name="season"> Осень (северное сияние)
+            <input type="radio" name="season"> Весна (рыбалка)
+            <button>Выбрать</button>
+        </form>
+    </div>
+
+    <!-- Советы туристам -->
+    <div id="section6" class="section">
+        <h2>Полезные советы</h2>
+        
+        <div class="tip">
+            <h3>Одежда</h3>
+            <p>Даже летом берите тёплую куртку! В Мурманске ветрено и может резко похолодать.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Транспорт</h3>
+            <p>Автобусы ходят регулярно. Стоимость проезда - 52  рублей.</p>
+        </div>
+        
+        <div class="tip">
+            <h3>Еда</h3>
+            <p>Обязательно попробуйте:</p>
+            <ul>
+                <li>Треску по-мурмански</li>
+                <li>Камбалу</li>
+                <li>Местные пирожки с рыбой</li>
+            </ul>
+        </div>
+        
+        <form>
+            <p><b>Оставьте отзыв о городе:</b></p>
+            <input type="text" placeholder="Ваш отзыв" size="50">
+            <button>Отправить</button>
+        </form>
+        
+        <form>
+            <p><b>Есть вопросы?</b></p>
+            <input type="text" placeholder="Ваш вопрос">
+            <button>Спросить</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>Путеводитель по Мурманску | Все права защищены</p>
+        <p><a href="https://murmansk.ru" style="color: white;">Официальный сайт города</a></p>
+    </footer>
 </body>
 </html>
