@@ -666,5 +666,123 @@
         <p>Путеводитель по Мурманску | Все права защищены</p>
         <p><a href="https://murmansk.ru" style="color: white;">Официальный сайт города</a></p>
     </footer>
+
+    <!-- РАЗДЕЛ 9: JavaScript интерактив -->
+    <div id="section9" class="section responsive-wide">
+        <h2>Интерактивный квиз о Мурманске</h2>
+        
+        <!-- Викторина -->
+        <div style="background: #f0f8ff; padding: 20px; border-radius: 15px; margin-bottom: 30px;">
+            <h3>Вопрос дня</h3>
+            <p><b>Сколько дней длится полярная ночь в Мурманске?</b></p>
+            <input type="number" id="answerInput" placeholder="Введите число">
+            <button onclick="checkAnswer()">Проверить</button>
+            <p id="resultMessage" style="margin-top: 10px; font-weight: bold;"></p>
+        </div>
+
+        <!-- Случайный факт -->
+        <div style="background: #e6f7e6; padding: 20px; border-radius: 15px; margin-bottom: 30px;">
+            <h3>Случайный факт о Мурманске</h3>
+            <p id="factText">Нажми на кнопку, чтобы узнать интересный факт</p>
+            <button onclick="showRandomFact()">Показать факт</button>
+        </div>
+
+        <!-- Таймер -->
+        <div style="background: #fff0e6; padding: 20px; border-radius: 15px;">
+            <h3>Обратный отсчёт</h3>
+            <p>До следующего полярного дня осталось:</p>
+            <p id="countdownDisplay" style="font-size: 24px; font-weight: bold; color: #1a4d80;">-- дней</p>
+            <button onclick="updateCountdown()">Обновить</button>
+            <p style="font-size: 12px; color: gray; margin-top: 10px;">(Полярный день начинается 22 мая)</p>
+        </div>
+    </div>
+
+    <script>
+        // 1. ПЕРЕМЕННЫЕ
+        let correctAnswer = 40;      // правильный ответ на вопрос
+        let score = 0;               // счёт пользователя
+        let clickCount = 0;          // счётчик нажатий
+
+        // 2. МАССИВ С ФАКТАМИ
+        const facts = [
+            "Мурманск — самый крупный город в мире, расположенный за Северным полярным кругом.",
+            "В Мурманске находится первый в мире атомный ледокол 'Ленин'.",
+            "Полярная ночь в Мурманске длится 40 дней, а полярный день — 62 дня.",
+            "Мурманск — город-герой, награждён орденом Ленина и орденом Отечественной войны.",
+            "В Мурманске есть памятник треске — рыбе, которая спасла город от голода в войну.",
+            "Кольский залив не замерзает благодаря теплому течению Гольфстрим."
+        ];
+
+        // 3. ФУНКЦИЯ ДЛЯ ПРОВЕРКИ ОТВЕТА
+        function checkAnswer() {
+            let userAnswer = document.getElementById("answerInput").value;
+            let message = document.getElementById("resultMessage");
+            
+            if (userAnswer == correctAnswer) {
+                message.innerHTML = "Абсолютно верно! Полярная ночь длится 40 дней. +1 балл!";
+                message.style.color = "green";
+                score++;
+            } else {
+                message.innerHTML = "Неправильно. Попробуй ещё раз! (Подсказка: это число от 30 до 50)";
+                message.style.color = "red";
+            }
+            
+            // Очищаем поле ввода
+            document.getElementById("answerInput").value = "";
+        }
+
+        // 4. ФУНКЦИЯ ДЛЯ СЛУЧАЙНОГО ФАКТА
+        function showRandomFact() {
+            clickCount++;
+            let randomIndex = Math.floor(Math.random() * facts.length);
+            let factElement = document.getElementById("factText");
+            factElement.innerHTML = facts[randomIndex];
+            
+            // setTimeout: через 3 секунды возвращаем стандартный текст
+            setTimeout(function() {
+                if (clickCount % 2 === 0) {
+                    factElement.innerHTML = "Нажми на кнопку, чтобы узнать интересный факт";
+                }
+            }, 3000);
+        }
+
+        // 5. ФУНКЦИЯ ДЛЯ ПОДСЧЁТА ДНЕЙ ДО ПОЛЯРНОГО ДНЯ
+        function daysUntilPolarDay() {
+            let today = new Date();
+            let polarDayStart = new Date(today.getFullYear(), 4, 22); // 22 мая (месяц 4 = май)
+            
+            if (today > polarDayStart) {
+                polarDayStart.setFullYear(today.getFullYear() + 1);
+            }
+            
+            let diffTime = polarDayStart - today;
+            let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays;
+        }
+
+        // 6. ФУНКЦИЯ ДЛЯ ОБНОВЛЕНИЯ ОТОБРАЖЕНИЯ ТАЙМЕРА
+        function updateCountdown() {
+            let days = daysUntilPolarDay();
+            let displayElement = document.getElementById("countdownDisplay");
+            displayElement.innerHTML = days + " дней";
+            
+            // setTimeout: анимация изменения цвета
+            displayElement.style.transition = "color 0.5s";
+            displayElement.style.color = "#ff6b35";
+            
+            setTimeout(function() {
+                displayElement.style.color = "#1a4d80";
+            }, 500);
+        }
+
+        // 7. ПРИВЕТСТВИЕ ПРИ ЗАГРУЗКЕ СТРАНИЦЫ
+        setTimeout(function() {
+            console.log("Добро пожаловать в путеводитель по Мурманску!");
+            console.log("Сегодня оранжевый цвет сайта: " + new Date().toLocaleDateString());
+        }, 1000);
+        
+        // 8. АВТОМАТИЧЕСКИ ОБНОВЛЯЕМ ТАЙМЕР ПРИ ЗАГРУЗКЕ
+        updateCountdown();
+    </script>
 </body>
 </html>
