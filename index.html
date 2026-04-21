@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -20,6 +20,7 @@
             padding: 15px 0;
             text-align: center;
             z-index: 1000;
+            transition: all 0.3s ease;
         }
         
         .navigation a {
@@ -28,11 +29,15 @@
             margin: 0 20px;
             font-size: 18px;
             padding: 5px 10px;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
         
+        /* АНИМАЦИЯ ДЛЯ ПУНКТОВ МЕНЮ */
         .navigation a:hover {
             background-color: #0d2b4a;
             border-radius: 5px;
+            transform: scale(1.1) translateY(-2px);
         }
         
         .section {
@@ -45,6 +50,19 @@
             color: #1a4d80;
             text-align: center;
             font-size: 48px;
+            animation: fadeInDown 1s ease-out;
+        }
+        
+        /* АНИМАЦИЯ ДЛЯ ЗАГОЛОВКА */
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         h2 {
@@ -60,6 +78,13 @@
             padding: 20px;
             margin: 20px 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        /* АНИМАЦИЯ ДЛЯ КАРТОЧЕК ПАМЯТНИКОВ */
+        .place-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
         
         .place-card h3 {
@@ -73,6 +98,13 @@
             height: auto;
             border-radius: 10px;
             margin: 10px 0;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        
+        /* АНИМАЦИЯ ДЛЯ ИЗОБРАЖЕНИЙ */
+        img:hover {
+            transform: scale(1.02);
+            filter: brightness(1.05);
         }
         
         table {
@@ -104,6 +136,146 @@
             border-left: 4px solid #ffc107;
             padding: 15px;
             margin: 20px 0;
+            transition: transform 0.3s ease;
+        }
+        
+        /* АНИМАЦИЯ ДЛЯ СОВЕТОВ */
+        .tip:hover {
+            transform: translateX(10px);
+        }
+        
+        /* СТИЛИ ДЛЯ FLEXBOX РАЗДЕЛА */
+        .flex-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .flex-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 15px;
+            padding: 20px;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .flex-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .flex-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 0 0 15px 0;
+        }
+        
+        .flex-card img:hover {
+            transform: scale(1.05);
+        }
+        
+        .flex-card h3 {
+            color: #1a4d80;
+            margin: 10px 0;
+        }
+        
+        .flex-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .flex-card .price-tag {
+            color: #ff6b35;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .flex-card button {
+            background-color: #1a4d80;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .flex-card button:hover {
+            background-color: #0d2b4a;
+            transform: scale(1.05);
+        }
+        
+        /* СТИЛИ ДЛЯ GRID РАЗДЕЛА */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .grid-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .grid-card:hover {
+            transform: scale(1.02) translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .grid-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin: 0;
+            border-radius: 0;
+            transition: transform 0.5s ease;
+        }
+        
+        .grid-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .grid-card-content {
+            padding: 20px;
+        }
+        
+        .grid-card h3 {
+            color: #1a4d80;
+            margin: 0 0 10px 0;
+        }
+        
+        .grid-card p {
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .grid-card .season {
+            display: inline-block;
+            background-color: #e3f2fd;
+            color: #1a4d80;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .grid-card:hover .season {
+            background-color: #1a4d80;
+            color: white;
+            transform: scale(1.05);
         }
         
         footer {
@@ -113,31 +285,146 @@
             color: white;
             margin-top: 40px;
         }
+        
+        /*АДАПТИВНЫЕ СТИЛИ (МЕДИАЗАПРОСЫ)*/
+        
+        /* Адаптив 1: для планшетов и небольших экранов (ширина до 768px) */
+        @media (max-width: 768px) {
+            .responsive-text {
+                font-size: 16px;
+                line-height: 1.4;
+            }
+            
+            h1 {
+                font-size: 32px;
+            }
+            
+            h2 {
+                font-size: 24px;
+            }
+            
+            .navigation a {
+                margin: 0 10px;
+                font-size: 14px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .flex-card {
+                width: 100%;
+                max-width: 320px;
+            }
+        }
+        
+        /* Адаптив 2: для мобильных телефонов (ширина до 480px) */
+        @media (max-width: 480px) {
+            .responsive-stack {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .navigation {
+                padding: 10px 0;
+            }
+            
+            .navigation a {
+                display: inline-block;
+                margin: 5px 8px;
+                font-size: 12px;
+                padding: 3px 8px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            h2 {
+                font-size: 20px;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+            
+            table, thead, tbody, th, td, tr {
+                display: block;
+                font-size: 14px;
+            }
+            
+            td, th {
+                padding: 8px;
+            }
+        }
+        
+        /* Адаптив 3: для очень больших экранов (ширина от 1200px) */
+        @media (min-width: 1200px) {
+            .responsive-wide {
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+            
+            .flex-container {
+                gap: 40px;
+            }
+            
+            .flex-card {
+                width: 320px;
+            }
+            
+            .grid-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .section {
+                padding: 50px;
+            }
+        }
+        
+        /* Дополнительный адаптив: для очень маленьких экранов (до 320px) */
+        @media (max-width: 320px) {
+            .navigation a {
+                margin: 3px 5px;
+                font-size: 10px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            button {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Фиксированная навигация -->
-    <div class="navigation">
+    <div class="navigation responsive-text">
         <a href="#section1">Главная</a>
         <a href="#section2">Памятники</a>
         <a href="#section3">Музеи</a>
         <a href="#section4">Природа</a>
         <a href="#section5">Маршруты</a>
         <a href="#section6">Советы</a>
+        <a href="#section7">Сувениры</a>
+        <a href="#section8">Сезоны</a>
     </div>
 
     <!-- Главная -->
-    <div id="section1" class="section">
+    <div id="section1" class="section responsive-wide">
         <h1>Путеводитель по Мурманску</h1>
-        <p style="font-size: 20px; text-align: center;">Добро пожаловать в столицу Арктики! Самый большой город за полярным кругом ждёт вас.</p>
+        <p class="responsive-text" style="font-size: 20px; text-align: center;">Добро пожаловать в столицу Арктики! Самый большой город за полярным кругом ждёт вас.</p>
         <img src="https://cdn.geliophoto.ru/public_images/189350816.jpeg" width="800" height="400" style="display: block; margin: 0 auto;">
     </div>
 
     <!-- Памятники -->
-    <div id="section2" class="section">
+    <div id="section2" class="section responsive-wide">
         <h2>Памятники Мурманска</h2>
         
-        <div class="place-card">
+        <div class="place-card responsive-text">
             <h3>Алёша (Памятник Защитникам Советского Заполярья)</h3>
             <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/d/d1/Алёша-Мурманск.JPG/1280px-Алёша-Мурманск.JPG" width="600" height="400">
             <p>Один из самых высоких памятников в России. Высота - 42 метра.</p>
@@ -145,26 +432,26 @@
             <p><b>Как добраться:</b> Автобусы № 10, 18, 27</p>
         </div>
         
-        <div class="place-card">
+        <div class="place-card responsive-text">
             <h3>Памятник треске</h3>
             <img src="https://www.libkids51.ru/news/files/20240127_1400-3_thumb.jpg" width="600" height="400">
             <p>Забавный памятник рыбе, которая спасла город от голода в войну.</p>
             <p><b>Адрес:</b> Парк на площади Пяти углов</p>
         </div>
         
-        <div class="place-card">
+        <div class="place-card responsive-text">
             <h3>Памятник морякам-подводникам</h3>
-            <img src="https://a.d-cd.net/7-gLxwZ_mSAvzskVMnF_q2Yl0cs-1920.jpg" width="600" height="400" >
+            <img src="https://a.d-cd.net/7-gLxwZ_mSAvzskVMnF_q2Yl0cs-1920.jpg" width="600" height="400">
             <p>Мемориал героям-подводникам Северного флота.</p>
-            <p><b>Адрес: Мурманский маяк</b> </p>
+            <p><b>Адрес: Мурманский маяк</b></p>
         </div>
     </div>
 
     <!-- Музеи -->
-    <div id="section3" class="section">
+    <div id="section3" class="section responsive-wide">
         <h2>Музеи Мурманска</h2>
         
-        <table>
+        <table border="1" class="responsive-text">
             <tr>
                 <th>Музей</th>
                 <th>Часы работы</th>
@@ -192,7 +479,7 @@
             </tr>
         </table>
         
-        <div class="place-card">
+        <div class="place-card responsive-text">
             <h3>Атомный ледокол "Ленин"</h3>
             <p>Первый в мире атомный ледокол. Сейчас это музей-корабль.</p>
             <p>Обязательно посетите машинное отделение и каюту капитана!</p>
@@ -201,10 +488,10 @@
     </div>
 
     <!-- Природа -->
-    <div id="section4" class="section">
+    <div id="section4" class="section responsive-wide">
         <h2>Природные достопримечательности</h2>
         
-        <div class="place-card">
+        <div class="place-card responsive-text">
             <h3>Семёновское озеро</h3>
             <p>Красивое озеро в центре города с океанариумом.</p>
             <ul>
@@ -214,7 +501,7 @@
             </ul>
         </div>
         
-        <div class="place-card">
+        <div class="place-card responsive-text">
             <h3>Кольский залив</h3>
             <p>Живописный залив Баренцева моря.</p>
             <ul>
@@ -224,7 +511,7 @@
             </ul>
         </div>
         
-        <div class="place-card">
+        <div class="place-card responsive-text">
             <h3>Северное сияние</h3>
             <p>Лучшее время для наблюдения: сентябрь - март</p>
             <form>
@@ -235,17 +522,17 @@
     </div>
 
     <!-- Маршруты -->
-    <div id="section5" class="section">
+    <div id="section5" class="section responsive-wide">
         <h2>Популярные маршруты</h2>
         
-        <ol>
+        <ol class="responsive-text">
             <li><b>Городской маршрут:</b> Площадь Пять Углов → Морской вокзал → Ледокол "Ленин" → Семёновское озеро</li>
             <li><b>Исторический:</b> Алёша → Краеведческий музей → Памятник морякам</li>
             <li><b>Природный:</b> Кольский залив → Северное сияние (ночью) → Выезд в тундру</li>
         </ol>
         
         <h3>Выберите сезон для поездки:</h3>
-        <form>
+        <form class="responsive-text">
             <input type="radio" name="season"> Лето (полярный день)
             <input type="radio" name="season"> Зима (полярная ночь)
             <input type="radio" name="season"> Осень (северное сияние)
@@ -255,20 +542,20 @@
     </div>
 
     <!-- Советы туристам -->
-    <div id="section6" class="section">
+    <div id="section6" class="section responsive-wide">
         <h2>Полезные советы</h2>
         
-        <div class="tip">
+        <div class="tip responsive-text">
             <h3>Одежда</h3>
             <p>Даже летом берите тёплую куртку! В Мурманске ветрено и может резко похолодать.</p>
         </div>
         
-        <div class="tip">
+        <div class="tip responsive-text">
             <h3>Транспорт</h3>
-            <p>Автобусы ходят регулярно. Стоимость проезда - 52  рублей.</p>
+            <p>Автобусы ходят регулярно. Стоимость проезда - 52 рубля.</p>
         </div>
         
-        <div class="tip">
+        <div class="tip responsive-text">
             <h3>Еда</h3>
             <p>Обязательно попробуйте:</p>
             <ul>
@@ -291,9 +578,211 @@
         </form>
     </div>
 
-    <footer>
+    <!-- FLEXBOX РАЗДЕЛ: Сувениры Мурманска -->
+    <div id="section7" class="section responsive-wide">
+        <h2>Сувениры Мурманска</h2>
+        <p class="responsive-text" style="font-size: 18px; margin-bottom: 30px;">Что привезти из поездки? Выбирайте лучшие сувениры!</p>
+        
+        <div class="flex-container responsive-stack">
+            <div class="flex-card">
+                <img src="https://avatars.mds.yandex.net/i?id=aca256742045b4869bdf3b79a3c9e74f_l-10118230-images-thumbs&n=13" alt="Треска">
+                <h3>Вяленая треска</h3>
+                <p>Знаменитая мурманская треска - главный гастрономический сувенир</p>
+                <div class="price-tag">450 руб.</div>
+                <button>В корзину</button>
+            </div>
+            
+            <div class="flex-card">
+                <img src="https://ir.ozone.ru/s3/multimedia-u/6490096002.jpg" alt="Магнит">
+                <h3>Магнит "Символы города"</h3>
+                <p>На магните представлены главные символы города</p>
+                <div class="price-tag">150 руб.</div>
+                <button>В корзину</button>
+            </div>
+            
+            <div class="flex-card">
+                <img src="https://avatars.mds.yandex.net/i?id=e6537916f70bf5e8e299b0da925faf59ac541360-5313379-images-thumbs&n=13" alt="Керамика">
+                <h3>Керамика с северным сиянием</h3>
+                <p>Ручная работа от местных мастеров</p>
+                <div class="price-tag">1200 руб.</div>
+                <button>В корзину</button>
+            </div>
+            
+            <div class="flex-card">
+                <img src="https://avatars.mds.yandex.net/get-mpic/5233631/img_id225432384734607072.jpeg/orig" alt="Морошка">
+                <h3>Морошка в сахаре</h3>
+                <p>Полярная ягода - полезный и вкусный подарок</p>
+                <div class="price-tag">350 руб.</div>
+                <button>В корзину</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GRID РАЗДЕЛ: Сезоны в Мурманске -->
+    <div id="section8" class="section responsive-wide">
+        <h2>Сезоны в Мурманске</h2>
+        <p class="responsive-text" style="font-size: 18px; margin-bottom: 30px;">Каждый сезон уникален. Выбирайте время для вашего путешествия!</p>
+        
+        <div class="grid-container">
+            <div class="grid-card">
+                <img src="https://inrussiatoday.ru/wp-content/uploads/2022/07/arktika-21-22-yanvarya-177-1200x800.jpg" alt="Зима в Мурманске">
+                <div class="grid-card-content">
+                    <h3>Зима</h3>
+                    <p>Полярная ночь, северное сияние, горнолыжные склоны. Температура: -10°C ... -15°C</p>
+                    <span class="season">Лучшее время: декабрь-февраль</span>
+                </div>
+            </div>
+            
+            <div class="grid-card">
+                <img src="https://murmansk.ru/storage/publication/315db/19933_gwp0rlY8KrjxLrg1LUWw.jpg" alt="Весна в Мурманске">
+                <div class="grid-card-content">
+                    <h3>Весна</h3>
+                    <p>Снег тает, возвращаются птицы, начинается рыбалка. Температура: 0°C ... +5°C</p>
+                    <span class="season">Лучшее время: март-май</span>
+                </div>
+            </div>
+            
+            <div class="grid-card">
+                <img src="https://avatars.mds.yandex.net/get-marketcms/475644/img-44600cb6-e33a-4e93-9ee3-1accec158889.jpeg/optimize" alt="Лето в Мурманске">
+                <div class="grid-card-content">
+                    <h3>Лето</h3>
+                    <p>Полярный день, белые ночи, морские прогулки. Температура: +12°C ... +20°C</p>
+                    <span class="season">Лучшее время: июнь-август</span>
+                </div>
+            </div>
+            
+            <div class="grid-card">
+                <img src="https://storage.myseldon.com/news-pict-67/67DE6534A4381E3913A2EB2F4A6396C1" alt="Осень в Мурманске">
+                <div class="grid-card-content">
+                    <h3>Осень</h3>
+                    <p>Золотая тундра, грибы и ягоды, первые северные сияния. Температура: +5°C ... +10°C</p>
+                    <span class="season">Лучшее время: сентябрь-октябрь</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="responsive-text">
         <p>Путеводитель по Мурманску | Все права защищены</p>
         <p><a href="https://murmansk.ru" style="color: white;">Официальный сайт города</a></p>
     </footer>
+
+    <!-- РАЗДЕЛ 9: JavaScript интерактив -->
+    <div id="section9" class="section responsive-wide">
+        <h2>Интерактивный квиз о Мурманске</h2>
+        
+        <!-- Викторина -->
+        <div style="background: #f0f8ff; padding: 20px; border-radius: 15px; margin-bottom: 30px;">
+            <h3>Вопрос дня</h3>
+            <p><b>Сколько дней длится полярная ночь в Мурманске?</b></p>
+            <input type="number" id="answerInput" placeholder="Введите число">
+            <button onclick="checkAnswer()">Проверить</button>
+            <p id="resultMessage" style="margin-top: 10px; font-weight: bold;"></p>
+        </div>
+
+        <!-- Случайный факт -->
+        <div style="background: #e6f7e6; padding: 20px; border-radius: 15px; margin-bottom: 30px;">
+            <h3>Случайный факт о Мурманске</h3>
+            <p id="factText">Нажми на кнопку, чтобы узнать интересный факт</p>
+            <button onclick="showRandomFact()">Показать факт</button>
+        </div>
+
+        <!-- Таймер -->
+        <div style="background: #fff0e6; padding: 20px; border-radius: 15px;">
+            <h3>Обратный отсчёт</h3>
+            <p>До следующего полярного дня осталось:</p>
+            <p id="countdownDisplay" style="font-size: 24px; font-weight: bold; color: #1a4d80;">-- дней</p>
+            <button onclick="updateCountdown()">Обновить</button>
+            <p style="font-size: 12px; color: gray; margin-top: 10px;">(Полярный день начинается 22 мая)</p>
+        </div>
+    </div>
+
+    <script>
+        // 1. ПЕРЕМЕННЫЕ
+        let correctAnswer = 40;      // правильный ответ на вопрос
+        let score = 0;               // счёт пользователя
+        let clickCount = 0;          // счётчик нажатий
+
+        // 2. МАССИВ С ФАКТАМИ
+        const facts = [
+            "Мурманск — самый крупный город в мире, расположенный за Северным полярным кругом.",
+            "В Мурманске находится первый в мире атомный ледокол 'Ленин'.",
+            "Полярная ночь в Мурманске длится 40 дней, а полярный день — 62 дня.",
+            "Мурманск — город-герой, награждён орденом Ленина и орденом Отечественной войны.",
+            "В Мурманске есть памятник треске — рыбе, которая спасла город от голода в войну.",
+            "Кольский залив не замерзает благодаря теплому течению Гольфстрим."
+        ];
+
+        // 3. ФУНКЦИЯ ДЛЯ ПРОВЕРКИ ОТВЕТА
+        function checkAnswer() {
+            let userAnswer = document.getElementById("answerInput").value;
+            let message = document.getElementById("resultMessage");
+            
+            if (userAnswer == correctAnswer) {
+                message.innerHTML = "Абсолютно верно! Полярная ночь длится 40 дней. +1 балл!";
+                message.style.color = "green";
+                score++;
+            } else {
+                message.innerHTML = "Неправильно. Попробуй ещё раз! (Подсказка: это число от 30 до 50)";
+                message.style.color = "red";
+            }
+            
+            // Очищаем поле ввода
+            document.getElementById("answerInput").value = "";
+        }
+
+        // 4. ФУНКЦИЯ ДЛЯ СЛУЧАЙНОГО ФАКТА
+        function showRandomFact() {
+            clickCount++;
+            let randomIndex = Math.floor(Math.random() * facts.length);
+            let factElement = document.getElementById("factText");
+            factElement.innerHTML = facts[randomIndex];
+            
+            // setTimeout: через 3 секунды возвращаем стандартный текст
+            setTimeout(function() {
+                if (clickCount % 2 === 0) {
+                    factElement.innerHTML = "Нажми на кнопку, чтобы узнать интересный факт";
+                }
+            }, 3000);
+        }
+
+        // 5. ФУНКЦИЯ ДЛЯ ПОДСЧЁТА ДНЕЙ ДО ПОЛЯРНОГО ДНЯ
+        function daysUntilPolarDay() {
+            let today = new Date();
+            let polarDayStart = new Date(today.getFullYear(), 4, 22); // 22 мая (месяц 4 = май)
+            
+            if (today > polarDayStart) {
+                polarDayStart.setFullYear(today.getFullYear() + 1);
+            }
+            
+            let diffTime = polarDayStart - today;
+            let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays;
+        }
+
+        // 6. ФУНКЦИЯ ДЛЯ ОБНОВЛЕНИЯ ОТОБРАЖЕНИЯ ТАЙМЕРА
+        function updateCountdown() {
+            let days = daysUntilPolarDay();
+            let displayElement = document.getElementById("countdownDisplay");
+            displayElement.innerHTML = days + " дней";
+            
+            // setTimeout: анимация изменения цвета
+            displayElement.style.transition = "color 0.5s";
+            displayElement.style.color = "#ff6b35";
+            
+            setTimeout(function() {
+                displayElement.style.color = "#1a4d80";
+            }, 500);
+        }
+
+        // 7. ПРИВЕТСТВИЕ ПРИ ЗАГРУЗКЕ СТРАНИЦЫ
+        setTimeout(function() {
+            console.log("Добро пожаловать в путеводитель по Мурманску!");
+            console.log("Сегодня оранжевый цвет сайта: " + new Date().toLocaleDateString());
+        }, 1000);
+        
+        // 8. АВТОМАТИЧЕСКИ ОБНОВЛЯЕМ ТАЙМЕР ПРИ ЗАГРУЗКЕ
+        updateCountdown();
+    </script>
 </body>
 </html>
